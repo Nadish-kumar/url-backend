@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let option = {
-    origin: "*"
+    origin: "https://verdant-dolphin-7e7550.netlify.app"
 }
 
 //appconfig
