@@ -21,7 +21,7 @@ let option = {
 const secret = "4641316895";
 const app = express();
 const port = process.env.PORT || 8001
-const connection__url = "mongodb+srv://nadish:nadish@cluster0.2cquf.mongodb.net/nadish?retryWrites=true&w=majority"
+const connection__url = "mongodb+srv://yatvik:yatvik07@cluster0.ybnwc.mongodb.net/url?retryWrites=true&w=majority"
 //middlewares
 app.use(express.json());
 app.use(cors(option));
