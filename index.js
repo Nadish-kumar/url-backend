@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let option = {
-    origin: "https://sage-fairy-4c83da.netlify.app"
+    origin: "*"
 }
 
 //appconfig
