@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let option = {
-    origin: "http://localhost:3000"
+    origin: "https://sage-fairy-4c83da.netlify.app"
 }
 
 //appconfig
@@ -24,7 +24,7 @@ const port = process.env.PORT || 8001
 const connection__url = "mongodb+srv://yatvik:yatvik07@cluster0.ybnwc.mongodb.net/url?retryWrites=true&w=majority"
 //middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(option));
 let authenticate = (req, res, next) => {
     if (req.headers.authentication) {
         try {
