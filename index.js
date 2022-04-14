@@ -25,18 +25,18 @@ const connection__url = "mongodb+srv://yatvik:yatvik07@cluster0.ybnwc.mongodb.ne
 //middlewares
 app.use(express.json());
 app.use(cors(option));
-let authenticate = (req, res, next) => {
-    if (req.headers.authentication) {
-        try {
-            let result = jwt.verify(req.headers.authentication, secret);
-            next();
-        } catch (error) {
-            res.status(401).json({ mesaagae: "token expired" })
-        }
-    } else {
-        res.status(401).json({ message: 'not authorized' })
-    }
-}
+// let authenticate = (req, res, next) => {
+//     if (req.headers.authentication) {
+//         try {
+//             let result = jwt.verify(req.headers.authentication, secret);
+//             next();
+//         } catch (error) {
+//             res.status(401).json({ mesaagae: "token expired" })
+//         }
+//     } else {
+//         res.status(401).json({ message: 'not authorized' })
+//     }
+// }
 //db config
 mongoose.connect(connection__url,)
 //api endpoint
@@ -54,7 +54,7 @@ app.post('/register', (req, res) => {
     let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: "nadishkrish65@gmail.com",
+            user: "",
             pass: "8825637070"
         }
     });
