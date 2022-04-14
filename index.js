@@ -13,9 +13,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let option = {
-    origin: "https://verdant-dolphin-7e7550.netlify.app"
-}
+// let option = {
+//     origin: "https://verdant-dolphin-7e7550.netlify.app"
+// }
 
 //appconfig
 const secret = "4641316895";
@@ -24,19 +24,19 @@ const port = process.env.PORT || 8001
 const connection__url = "mongodb+srv://yatvik:yatvik07@cluster0.ybnwc.mongodb.net/url?retryWrites=true&w=majority"
 //middlewares
 app.use(express.json());
-app.use(cors(option));
-// let authenticate = (req, res, next) => {
-//     if (req.headers.authentication) {
-//         try {
-//             let result = jwt.verify(req.headers.authentication, secret);
-//             next();
-//         } catch (error) {
-//             res.status(401).json({ mesaagae: "token expired" })
-//         }
-//     } else {
-//         res.status(401).json({ message: 'not authorized' })
-//     }
-// }
+app.use(cors());
+let authenticate = (req, res, next) => {
+    if (req.headers.authentication) {
+        try {
+            let result = jwt.verify(req.headers.authentication, secret);
+            next();
+        } catch (error) {
+            res.status(401).json({ mesaagae: "token expired" })
+        }
+    } else {
+        res.status(401).json({ message: 'not authorized' })
+    }
+}
 //db config
 mongoose.connect(connection__url,)
 //api endpoint
